@@ -289,3 +289,27 @@ body {
     width: 200px;
   }
 }
+
+.userForm {
+  margin: 10px 0;
+}
+
+.userForm div {
+  margin: 15px 0;
+}
+
+.userForm div input {
+  height: 30px;
+}
+
+.userForm div button {
+  background-color: #fff;
+  border-color: #00bc77;
+  color: #00bc77;
+  height: 30px;
+  width: 100px;
+}
+
+.userForm div *{
+  margin: 0 5px;
+}

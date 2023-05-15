@@ -1,20 +1,18 @@
 import { selectToken } from '../features/userToken'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
+
 
 import { removeToken } from '../features/userToken'
 
 function Nav() {
-    console.log('toto ' + useSelector(state => state.userToken.token));
     const isUserLoggedIn = useSelector(selectToken) != '' ? true : false
 
-
-
-    /*const dispatch = useDispatch()
+    const dispatch = useDispatch()
     function logoutUser() {
         dispatch(removeToken())
-        window.location.href = '/login'
-    }*/
+    }
 
     return (
         <nav className="main-nav">
@@ -28,7 +26,7 @@ function Nav() {
             </a>
             <div>
                 {isUserLoggedIn ?
-                    <a className="main-nav-item" >
+                    <a className="main-nav-item" onClick={logoutUser}>
                         <i className="fa fa-user-circle"></i>
                         Log Out
                     </a>

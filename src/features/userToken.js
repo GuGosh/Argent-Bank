@@ -10,7 +10,7 @@ export const userTokenSlice = createSlice({
 
     reducers: {
         addToken: (state, action) => {
-            state.token = action.payload.token
+            state.token = action.payload
         },
         removeToken: (state, action) => {
             state.token = ''

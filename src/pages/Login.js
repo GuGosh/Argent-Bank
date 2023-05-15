@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { login } from '../services/index';
 import { useDispatch } from 'react-redux'
 import { addToken } from '../features/userToken'
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
     const [userEmail, setUserEmail] = useState();
@@ -9,6 +11,7 @@ function Login() {
     const [userToken, setUserToken] = useState();
 
     const dispatch = useDispatch()
+    const navigate = useNavigate();
 
 
     async function submitForm(e) {
@@ -17,11 +20,9 @@ function Login() {
             return response.data.body.token;
         }).then((token) => {
             if (token) {
-                const token_const = { token: token };
-                dispatch(addToken({ ...token_const, token_const }))
-                //window.location.href = '/account'
+                dispatch(addToken(token))
+                navigate("/account");
             }
-
         })
     }
 
